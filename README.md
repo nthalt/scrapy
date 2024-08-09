@@ -26,3 +26,11 @@ cd hotel_scraper
 ```sh
 scrapy crawl
 ```
+
+# Notes
+
+**This repo follows PEP 8 Standards.**
+
+- Trailing whitespace should be avoided at the end of lines, except on completely blank lines.
+- Spaces should be used around binary operators to improve readability.
+- Extra spaces inside brackets or before commas should be avoided to keep the code clean and consistent.
