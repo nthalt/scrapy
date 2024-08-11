@@ -25,6 +25,7 @@ ROBOTSTXT_OBEY = True
 # Enable the Images Pipeline
 ITEM_PIPELINES = {
     'hotel_scraper.pipelines.CustomImagesPipeline': 1,
+    'hotel_scraper.pipelines.PostgresPipeline': 300,
 }
 
 # Define the directory where images will be saved
