@@ -1,0 +1,222 @@
+[
+    {
+        "propertyTitle": "Britannia International Hotel Canary Wharf",
+        "rating": 3.7,
+        "location": "london",
+        "latitude": 51.5019422,
+        "longitude": -0.0233396,
+        "room_type": [
+            "Restaurant",
+            "24 hour reception",
+            "Luggage storage",
+            "Wi-Fi",
+            "Smoking area",
+            "Bar",
+            "Breakfast",
+            "Pets allowed"
+        ],
+        "price": 44,
+        "image_urls": [
+            "https://ak-d.tripcdn.com/images/1mc1f12000apgadzt75C4.jpg"
+        ],
+        "image_names": [
+            "1mc1f12000apgadzt75C4.jpg"
+        ]
+    },
+    {
+        "propertyTitle": "St Giles London \u2013 A St Giles Hotel",
+        "rating": 4.1,
+        "location": "london",
+        "latitude": 51.51755790000001,
+        "longitude": -0.1306328,
+        "room_type": [
+            "Restaurant",
+            "24 hour reception",
+            "Wi-Fi",
+            "Bar",
+            "Breakfast"
+        ],
+        "price": 69,
+        "image_urls": [
+            "https://ak-d.tripcdn.com/images/020081200094yf4vv90B9.jpg"
+        ],
+        "image_names": [
+            "020081200094yf4vv90B9.jpg"
+        ]
+    },
+    {
+        "propertyTitle": "Dreamtel London Kensington",
+        "rating": 3.7,
+        "location": "london",
+        "latitude": 51.49329179999999,
+        "longitude": -0.1918628,
+        "room_type": [
+            "Restaurant",
+            "24 hour reception",
+            "Luggage storage",
+            "Wi-Fi",
+            "Breakfast"
+        ],
+        "price": 59,
+        "image_urls": [
+            "https://ak-d.tripcdn.com/images/1mc3f12000d272kqk5CF8.jpg"
+        ],
+        "image_names": [
+            "1mc3f12000d272kqk5CF8.jpg"
+        ]
+    },
+    {
+        "propertyTitle": "Good Hotel London",
+        "rating": 4.2,
+        "location": "london",
+        "latitude": 51.5075502,
+        "longitude": 0.0195489,
+        "room_type": [
+            "Restaurant",
+            "24 hour reception",
+            "Luggage storage",
+            "Wi-Fi",
+            "Bar",
+            "Breakfast"
+        ],
+        "price": 68,
+        "image_urls": [
+            "https://ak-d.tripcdn.com/images/220g0z000000mo2l96109.jpg"
+        ],
+        "image_names": [
+            "220g0z000000mo2l96109.jpg"
+        ]
+    },
+    {
+        "propertyTitle": "Axiom Park Hotel",
+        "rating": 3.7,
+        "location": "london",
+        "latitude": 51.4743806,
+        "longitude": -0.1570833,
+        "room_type": [
+            "24 hour reception",
+            "Currency exchange",
+            "Luggage storage",
+            "Wi-Fi"
+        ],
+        "price": 59,
+        "image_urls": [
+            "https://ak-d.tripcdn.com/images/02269120009zuy22k7836.jpg"
+        ],
+        "image_names": [
+            "02269120009zuy22k7836.jpg"
+        ]
+    },
+    {
+        "propertyTitle": "Leonardo Royal London Tower Bridge",
+        "rating": 4.3,
+        "location": "london",
+        "latitude": 51.5117814,
+        "longitude": -0.0715236,
+        "room_type": [
+            "Sauna",
+            "Restaurant",
+            "Gym",
+            "24 hour reception",
+            "Luggage storage",
+            "Spa",
+            "Swimming Pools",
+            "Wi-Fi",
+            "Bar",
+            "Breakfast"
+        ],
+        "price": 131,
+        "image_urls": [
+            "https://ak-d.tripcdn.com/images/20081a00000196k4j01A7.jpg"
+        ],
+        "image_names": [
+            "20081a00000196k4j01A7.jpg"
+        ]
+    },
+    {
+        "propertyTitle": "The Gantry London, Curio Collection by Hilton",
+        "rating": 4.6,
+        "location": "london",
+        "latitude": 51.5464032,
+        "longitude": -0.0079163,
+        "room_type": [
+            "Restaurant",
+            "24 hour reception",
+            "Gym",
+            "Luggage storage",
+            "Wi-Fi",
+            "Smoking area",
+            "Bar",
+            "Pets allowed",
+            "Breakfast"
+        ],
+        "price": 127,
+        "image_urls": [
+            "https://ak-d.tripcdn.com/images/0223e120009q773r9E37E.jpg"
+        ],
+        "image_names": [
+            "0223e120009q773r9E37E.jpg"
+        ]
+    },
+    {
+        "propertyTitle": "Zedwell Piccadilly Circus",
+        "rating": 3.9,
+        "location": "london",
+        "latitude": 51.5104658,
+        "longitude": -0.1335862,
+        "room_type": [
+            "24 hour reception",
+            "Gym",
+            "Luggage storage",
+            "Wi-Fi",
+            "Breakfast"
+        ],
+        "price": 83,
+        "image_urls": [
+            "https://ak-d.tripcdn.com/images/0226412000c3v6hmo7CBC.jpg"
+        ],
+        "image_names": [
+            "0226412000c3v6hmo7CBC.jpg"
+        ]
+    },
+    {
+        "propertyTitle": "Royal National Hotel",
+        "rating": 4,
+        "location": "london",
+        "latitude": 51.5234634,
+        "longitude": -0.1273153,
+        "room_type": [
+            "Restaurant",
+            "24 hour reception",
+            "Wi-Fi",
+            "Breakfast"
+        ],
+        "price": 125,
+        "image_urls": [
+            "https://ak-d.tripcdn.com/images/1mc4512000dl5w9gpC200.jpg"
+        ],
+        "image_names": [
+            "1mc4512000dl5w9gpC200.jpg"
+        ]
+    },
+    {
+        "propertyTitle": "easyHotel London City Shoreditch",
+        "rating": 4,
+        "location": "london",
+        "latitude": 51.5244235,
+        "longitude": -0.0946223,
+        "room_type": [
+            "24 hour reception",
+            "Luggage storage",
+            "Wi-Fi",
+            "Pets allowed"
+        ],
+        "price": 55,
+        "image_urls": [
+            "https://ak-d.tripcdn.com/images/0224a12000a38eraf686E.jpg"
+        ],
+        "image_names": [
+            "0224a12000a38eraf686E.jpg"
+        ]
+    }
+]
