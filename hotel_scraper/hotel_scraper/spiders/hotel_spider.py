@@ -89,9 +89,8 @@ class HotelSpider(scrapy.Spider):
         json_data = re.search(r'window\.IBU_HOTEL\s*=\s*(\{.*?\});', script_text, re.DOTALL).group(1)
         data = json.loads(json_data)
 
-        hotels = []
-        for city in data['initData']['htlsData']['inboundCities']:
-            if city['cityUrl'] == "london":
+        for city in data['initData']['htlsData']['outboundCities']:
+            if city['cityUrl'] == "bangkok":
                 for hotel in city['recommendHotels']:
                     img_url = f"https://ak-d.tripcdn.com/images{hotel['imgUrl']}"
                     yield {
