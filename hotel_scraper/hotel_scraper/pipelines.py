@@ -5,11 +5,11 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine, Column, Integer, String, Float, ARRAY
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from scrapy.pipelines.images import ImagesPipeline
+import psycopg2
 from scrapy.exceptions import DropItem
 import scrapy
 from sqlalchemy_utils import database_exists, create_database
-import psycopg2
+from scrapy.pipelines.images import ImagesPipeline
 
 # Load environment variables
 load_dotenv()
@@ -21,6 +21,7 @@ logger = logging.getLogger(__name__)
 Base = declarative_base()
 
 class Hotel(Base):
+    """Module providing a function printing python version."""
     __tablename__ = 'hotels'
 
     id = Column(Integer, primary_key=True)
@@ -55,16 +56,16 @@ class PostgresPipeline:
         if not self.database_url:
             raise Exception("DATABASE_URL environment variable is not set")
         logger.info(f"Connecting to database: {self.database_url}")
-        
+
         self.create_database_if_not_exists()
-        
+
         self.engine = create_engine(self.database_url)
         self.Session = sessionmaker(bind=self.engine)
 
     def create_database_if_not_exists(self):
         db_name = self.database_url.split('/')[-1]
         db_url_without_name = '/'.join(self.database_url.split('/')[:-1])
-        
+
         if not database_exists(self.database_url):
             logger.info(f"Database {db_name} does not exist. Creating it now.")
             try:
@@ -72,14 +73,14 @@ class PostgresPipeline:
                 conn = psycopg2.connect(db_url_without_name + '/postgres')
                 conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
                 cur = conn.cursor()
-                
+
                 # Create the database
                 cur.execute(f'CREATE DATABASE {db_name}')
-                
+
                 # Close communication with the database
                 cur.close()
                 conn.close()
-                
+
                 logger.info(f"Database {db_name} created successfully.")
             except (Exception, psycopg2.Error) as error:
                 logger.error(f"Error while creating database: {error}")

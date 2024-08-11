@@ -1,36 +1,109 @@
-```sh
-git clone https://github.com/nthalt/scrapy.git
-cd scrapy
-```
+# Hotel Scraper
 
-```sh
-python3 -m venv venv
-```
+This project is a web scraper built with Scrapy for gathering hotel property information from trip.com. The scraped data is stored in a PostgreSQL database using SQLAlchemy, with images saved to a designated directory. The database and table will be automatically created if they do not exist.
 
-```sh
-source venv/bin/activate
-```
+-   [Description](#description)
+-   [Features](#features)
+-   [Setup and Installation](#setup-and-installation)
+-   [Running the Scraper](#running-the-scraper)
+-   [Contributing](#contributing)
 
-```sh
-pip install -r requirements.txt
-```
+## Description
 
-```sh
-scrapy startproject hotel_scraper
-```
+The scraper collects hotel property information including title, rating, location, latitude, longitude, room type, price, and images. The data is stored in a PostgreSQL database, and images are saved to a specified directory. The database and necessary tables will be created automatically.
 
-```sh
-cd hotel_scraper
-```
+## Features
 
-```sh
-scrapy crawl
-```
+1. Uses Scrapy for web scraping
+2. Stores data in a PostgreSQL database with SQLAlchemy
+3. Automatically creates the database and tables if they do not exist
+4. Saves images to a directory and stores image references in the database
+5. Adheres to PEP 8 standards
 
-# Notes
+## Setup and Installation
 
-**This repo follows PEP 8 Standards.**
+1. Clone the repository:
 
-- Trailing whitespace should be avoided at the end of lines, except on completely blank lines.
-- Spaces should be used around binary operators to improve readability.
-- Extra spaces inside brackets or before commas should be avoided to keep the code clean and consistent.
+    ```bash
+    git clone https://github.com/nthalt/scrapy.git
+    cd scrapy
+    ```
+
+2. Create and activate a virtual environment:
+
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows use: venv\Scripts\activate
+    ```
+
+3. Install the required packages:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. Create a file named `.env` in the project root and add your PostgreSQL database connection details. Use `.env.example` as a reference:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+5. Run the database migrations (if applicable) to create the necessary tables:
+
+    ```bash
+    python migrate.py
+    ```
+
+6. Move to the project directory
+    ```bash
+    cd hotel_scraper
+    ```
+
+## Running the Scraper
+
+To start the scraper, use the following command:
+
+    ```bash
+    scrapy crawl hotel_spider
+    ```
+
+The scraper will collect hotel data from the specified URLs and store the information in the PostgreSQL database. Images will be saved in the images/images/ directory.
+
+## Contributing
+
+We welcome contributions to this project. To ensure a smooth collaboration, please follow these guidelines:
+
+1. **Fork the Repository**: Start by forking the repository on GitHub.
+
+2. **Clone the Repository**: Clone your forked repository to your local machine using:
+
+    ```bash
+    git clone https://github.com/nthalt/scrapy.git
+    ```
+
+3. **Create a Branch**: Create a new branch for your feature or bug fix:
+
+    ```bash
+    git checkout -b feature-or-bugfix-description
+    ```
+
+4. **Make Changes**: Implement your changes in the codebase. Ensure your code adheres to the project's coding standards and includes appropriate tests.
+
+5. **Commit Changes**: Commit your changes with a clear and descriptive commit message:
+
+    ```bash
+    git add .
+    git commit -m "Description of the feature or bug fix"
+    ```
+
+6. **Push to GitHub**: Push your branch to your forked repository on GitHub:
+
+    ```bash
+    git push origin feature-or-bugfix-description
+    ```
+
+7. **Create a Pull Request**: Go to the original repository on GitHub and create a pull request. Provide a clear and detailed description of your changes.
+
+8. **Review Process**: Wait for the project maintainers to review your pull request. Be prepared to make any necessary changes based on feedback.
+
+Thank you for your contributions! Your help is greatly appreciated.

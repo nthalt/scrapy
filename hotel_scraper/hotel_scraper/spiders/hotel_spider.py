@@ -1,10 +1,11 @@
 """Module providing a function printing python version."""
 
-import scrapy
 import json
 import re
+import scrapy
 
 class HotelSpider(scrapy.Spider):
+    """Module providing a function printing python version."""
     name = "hotel"
 
     def start_requests(self):
