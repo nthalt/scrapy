@@ -25,7 +25,7 @@ class Hotel(Base):
     __tablename__ = 'hotels'
 
     id = Column(Integer, primary_key=True)
-    property_title = Column(String)
+    property_title = Column(String, unique=True)
     rating = Column(Float)
     location = Column(String)
     latitude = Column(Float)

@@ -1,5 +1,6 @@
 import json
 import re
+import os
 import scrapy
 
 class HotelSpider(scrapy.Spider):
@@ -41,6 +42,7 @@ class HotelSpider(scrapy.Spider):
     def process_city_hotels(self, city):
         for hotel in city['recommendHotels']:
             img_url = f"https://ak-d.tripcdn.com/images{hotel['imgUrl']}"
+            image_name = f"{city['cityUrl']}_{self.sanitize_filename(hotel['hotelName'])}{self.get_file_extension(hotel['imgUrl'])}"
             yield {
                 "propertyTitle": hotel['hotelName'],
                 "rating": hotel.get('rating', None),
@@ -50,12 +52,13 @@ class HotelSpider(scrapy.Spider):
                 "room_type": [facility['name'] for facility in hotel.get('hotelFacilityList', [])],
                 "price": hotel['displayPrice']['price'],
                 "image_urls": [img_url],
-                "image_names": [hotel['imgUrl'].split('/')[-1]]
+                "image_names": [image_name]
             }
 
     def process_special_hotels(self, hotels):
         for hotel in hotels:
             img_url = f"https://ak-d.tripcdn.com/images{hotel['imgUrl']}"
+            image_name = f"{hotel['cityName']}_{self.sanitize_filename(hotel['hotelName'])}{self.get_file_extension(hotel['imgUrl'])}"
             yield {
                 "propertyTitle": hotel['hotelName'],
                 "rating": hotel.get('rating', None),
@@ -65,5 +68,15 @@ class HotelSpider(scrapy.Spider):
                 "room_type": [facility['name'] for facility in hotel.get('hotelFacilityList', [])],
                 "price": hotel['displayPrice']['price'],
                 "image_urls": [img_url],
-                "image_names": [hotel['imgUrl'].split('/')[-1]]
+                "image_names": [image_name]
             }
+
+    @staticmethod
+    def sanitize_filename(filename):
+        """Remove or replace characters that are unsafe for filenames."""
+        return re.sub(r'[<>:"/\\|?*]', '', filename).strip()
+
+    @staticmethod
+    def get_file_extension(file_path):
+        """Extract the file extension from a file path."""
+        return os.path.splitext(file_path)[1]
