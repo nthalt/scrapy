@@ -1,6 +1,6 @@
 # Hotel Scraper
 
-This project is a web scraper built with Scrapy for gathering hotel property information from trip.com. The scraped data is stored in a PostgreSQL database using SQLAlchemy, with images saved to a designated directory. The database and table will be automatically created if they do not exist.
+This project is a web scraper built with Scrapy for gathering hotel property information from [https://uk.trip.com](https://uk.trip.com/hotels/?locale=en-GB&curr=GBP). The scraped data is stored in a PostgreSQL database using SQLAlchemy, with images saved to a designated directory. The database and table will be automatically created if they do not exist.
 
 - [Description](#description)
 - [Features](#features)
