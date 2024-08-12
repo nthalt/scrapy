@@ -37,7 +37,7 @@ class Hotel(Base):
 class CustomImagesPipeline(ImagesPipeline):
     def file_path(self, request, response=None, info=None):
         image_name = request.meta['image_name']
-        return f'images/{image_name}'
+        return f'{image_name}'
 
     def get_media_requests(self, item, info):
         for image_url, image_name in zip(item.get('image_urls', []), item.get('image_names', [])):

@@ -48,11 +48,7 @@ The scraper collects hotel property information including title, rating, locatio
     cp .env.example .env
     ```
 
-5. Run the database migrations (if applicable) to create the necessary tables:
-
-    ```bash
-    python migrate.py
-    ```
+5. Make sure Postgresql database is installed and running.
 
 6. Move to the project directory
     ```bash
@@ -63,13 +59,26 @@ The scraper collects hotel property information including title, rating, locatio
 
 To start the scraper, use the following command:
 
-    ```bash
-    scrapy crawl hotel_spider
-    ```
+```bash
+scrapy crawl hotel
+```
 
-The scraper will collect hotel data from the specified URLs and store the information in the PostgreSQL database. Images will be saved in the images/images/ directory.
+The scraper will collect hotel data from the specified URLs and store the information in the PostgreSQL database. Images will be saved in the `images/` directory.
+
+## Troubleshooting
+
+If the database is not automatically created, please create the database manually.
+
+```bash
+CREATE DATABASE scrapy_db;
+```
+
+<details>
+<summary>
 
 ## Contributing
+
+</summary>
 
 We welcome contributions to this project. To ensure a smooth collaboration, please follow these guidelines:
 
@@ -78,7 +87,7 @@ We welcome contributions to this project. To ensure a smooth collaboration, plea
 2. **Clone the Repository**: Clone your forked repository to your local machine using:
 
     ```bash
-    git clone https://github.com/nthalt/scrapy.git
+    git clone https://github.com/username/scrapy.git
     ```
 
 3. **Create a Branch**: Create a new branch for your feature or bug fix:
@@ -107,3 +116,5 @@ We welcome contributions to this project. To ensure a smooth collaboration, plea
 8. **Review Process**: Wait for the project maintainers to review your pull request. Be prepared to make any necessary changes based on feedback.
 
 Thank you for your contributions! Your help is greatly appreciated.
+
+</details>
