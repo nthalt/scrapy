@@ -6,6 +6,7 @@ This project is a web scraper built with Scrapy for gathering hotel property inf
 - [Features](#features)
 - [Setup and Installation](#setup-and-installation)
 - [Running the Scraper](#running-the-scraper)
+- [Database Schema](#database-schema)
 - [Contributing](#contributing)
 
 ## Description
@@ -72,6 +73,27 @@ Only if the database is not automatically created, please create the database ma
 ```bash
 CREATE DATABASE your_database_name;
 ```
+
+## Database Schema
+
+#### Table "hotels"
+
+| Column         | Type                | Collation | Nullable | Default                            |
+| -------------- | ------------------- | --------- | -------- | ---------------------------------- |
+| id             | integer             |           | not null | nextval('hotels_id_seq'::regclass) |
+| property_title | character varying   |           |          |                                    |
+| rating         | double precision    |           |          |                                    |
+| location       | character varying   |           |          |                                    |
+| latitude       | double precision    |           |          |                                    |
+| longitude      | double precision    |           |          |                                    |
+| room_type      | character varying[] |           |          |                                    |
+| price          | double precision    |           |          |                                    |
+| img            | character varying   |           |          |                                    |
+
+#### Indexes:
+
+- "hotels_pkey" PRIMARY KEY, btree (id)
+- "hotels_property_title_key" UNIQUE CONSTRAINT, btree (property_title)
 
 <details>
 <summary>
