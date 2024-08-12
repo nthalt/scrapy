@@ -32,6 +32,12 @@ class HotelSpider(scrapy.Spider):
         for city in data['initData']['htlsData']['outboundCities']:
             yield from self.process_city_hotels(city)
 
+        # Process fiveStarHotels
+        yield from self.process_special_hotels(data['initData']['htlsData']['fiveStarHotels'])
+
+        # Process cheapHotels
+        yield from self.process_special_hotels(data['initData']['htlsData']['cheapHotels'])
+
     def process_city_hotels(self, city):
         for hotel in city['recommendHotels']:
             img_url = f"https://ak-d.tripcdn.com/images{hotel['imgUrl']}"
@@ -39,6 +45,21 @@ class HotelSpider(scrapy.Spider):
                 "propertyTitle": hotel['hotelName'],
                 "rating": hotel.get('rating', None),
                 "location": city['cityUrl'],
+                "latitude": hotel['lat'],
+                "longitude": hotel['lon'],
+                "room_type": [facility['name'] for facility in hotel.get('hotelFacilityList', [])],
+                "price": hotel['displayPrice']['price'],
+                "image_urls": [img_url],
+                "image_names": [hotel['imgUrl'].split('/')[-1]]
+            }
+
+    def process_special_hotels(self, hotels):
+        for hotel in hotels:
+            img_url = f"https://ak-d.tripcdn.com/images{hotel['imgUrl']}"
+            yield {
+                "propertyTitle": hotel['hotelName'],
+                "rating": hotel.get('rating', None),
+                "location": hotel['cityName'],
                 "latitude": hotel['lat'],
                 "longitude": hotel['lon'],
                 "room_type": [facility['name'] for facility in hotel.get('hotelFacilityList', [])],
