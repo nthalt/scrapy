@@ -1,11 +1,9 @@
-"""Module providing a function printing python version."""
-
 import json
 import re
 import scrapy
 
 class HotelSpider(scrapy.Spider):
-    """Module providing a function printing python version."""
+    """Spider for scraping hotel information from Trip.com"""
     name = "hotel"
 
     def start_requests(self):
@@ -26,19 +24,25 @@ class HotelSpider(scrapy.Spider):
         json_data = re.search(r'window\.IBU_HOTEL\s*=\s*(\{.*?\});', script_text, re.DOTALL).group(1)
         data = json.loads(json_data)
 
-        hotels = []
+        # Process inboundCities
+        for city in data['initData']['htlsData']['inboundCities']:
+            yield from self.process_city_hotels(city)
+
+        # Process outboundCities
         for city in data['initData']['htlsData']['outboundCities']:
-            if city['cityUrl'] == "bangkok":
-                for hotel in city['recommendHotels']:
-                    img_url = f"https://ak-d.tripcdn.com/images{hotel['imgUrl']}"
-                    yield {
-                        "propertyTitle": hotel['hotelName'],
-                        "rating": hotel['rating'],
-                        "location": city['cityUrl'],
-                        "latitude": hotel['lat'],
-                        "longitude": hotel['lon'],
-                        "room_type": [facility['name'] for facility in hotel['hotelFacilityList']],
-                        "price": hotel['displayPrice']['price'],
-                        "image_urls": [img_url],
-                        "image_names": [hotel['imgUrl'].split('/')[-1]]
-                    }                    
+            yield from self.process_city_hotels(city)
+
+    def process_city_hotels(self, city):
+        for hotel in city['recommendHotels']:
+            img_url = f"https://ak-d.tripcdn.com/images{hotel['imgUrl']}"
+            yield {
+                "propertyTitle": hotel['hotelName'],
+                "rating": hotel.get('rating', None),
+                "location": city['cityUrl'],
+                "latitude": hotel['lat'],
+                "longitude": hotel['lon'],
+                "room_type": [facility['name'] for facility in hotel.get('hotelFacilityList', [])],
+                "price": hotel['displayPrice']['price'],
+                "image_urls": [img_url],
+                "image_names": [hotel['imgUrl'].split('/')[-1]]
+            }
