@@ -19,7 +19,6 @@ The scraper collects hotel property information including title, rating, locatio
 2. Stores hotel data in a PostgreSQL database with SQLAlchemy
 3. Automatically creates the database and tables if they do not exist
 4. Saves images to a directory and stores image path references in the database
-5. Adheres to PEP 8 standards
 
 ## Setup and Installation
 
